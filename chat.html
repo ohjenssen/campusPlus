@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link href="styles.css" rel="stylesheet">
+    <title>Campus+ | Hjem</title>
+</head>
+<body>
+    <header class="navigation">
+        <div class="center-button">
+            <a href="scan.html"><img class="icon" src="./images/qr-code-scan.svg">Scan</a>
+        </div>
+        <nav class="navbar">
+            <a class="nav-item" href="index.html"><img class="icon" src="./images/house-door-fill.svg">Hjem</a>
+            <a class="nav-item" href="stands.html"><img class="icon" src="./images/geo-alt-fill.svg">Kort</a>
+            <div class="center-div">
+            </div>
+            <a class="nav-item filter-green" href="chat.html"><img class="icon" src="./images/chat-dots-fill.svg">Chat</a>
+            <a class="nav-item" href="more.html"><img class="icon" src="./images/three-dots.svg">More</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Chat</h1>
+        </div>
+    </main>
+    <!-- <div id="map"></div> -->
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        let map = L.map('map').setView([60.7957, 10.6915], 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        let stand = L.marker([51.5, -0.09]).addTo(map);
+
+        let redCircle = L.circle([51.508, -0.11], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: 500
+        }).addTo(map);
+
+        let blueCircle = L.circle([51.501, -0.11], {
+            color: 'blue',
+            fillColor: '#0000FF',
+            fillOpacity: 0.5,
+            radius: 500
+        }).addTo(map);
+
+        // let polygon = L.polygon([
+        //     [51.509, -0.08],
+        //     [51.503, -0.06],
+        //     [51.51, -0.047]
+        // ]).addTo(map);
+
+        let greenCircle = L.polygon([[51.509, -0.08],
+            [51.503, -0.06],
+            [51.51, -0.047]], {
+            color: 'green',
+            fillColor: '#00ff00',
+            fillOpacity: 0.5,
+            radius: 500
+        }).addTo(map);
+
+
+    </script>
+</body>
+</html>
