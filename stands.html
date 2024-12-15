@@ -10,23 +10,32 @@
 <body>
     <header class="navigation">
         <div class="center-button">
-            <a href="scan.html"><img class="icon" src="./images/qr-code-scan.svg">Scan</a>
+            <a href="scan.html"><img cl  ass="icon" src="./images/qr-code-scan.svg">Scan</a>
         </div>
         <nav class="navbar">
-            <a class="nav-item" href="index.html"><img class="icon" src="./images/house-door-fill.svg">Hjem</a>
+            <a class="nav-item" href="hjaem.html"><img class="icon filter-white" src="./images/house-door-fill.svg">Hjem</a>
             <a class="nav-item filter-green" href="stands.html"><img class="icon" src="./images/geo-alt-fill.svg">Kort</a>
             <div class="center-div">
             </div>
-            <a class="nav-item" href="chat.html"><img class="icon" src="./images/chat-dots-fill.svg">Chat</a>
-            <a class="nav-item" href="more.html"><img class="icon" src="./images/three-dots.svg">More</a>
+            <a class="nav-item" href="chat.html"><img class="icon filter-white" src="./images/chat-dots-fill.svg">Chat</a>
+            <a class="nav-item" href="more.html"><img class="icon filter-white" src="./images/three-dots.svg">More</a>
         </nav>
     </header>
     <main>
-        <div class="container">
-            <h1>Stands</h1>
-        </div>
+        <section class="container">
+            <div class="logoContainer">
+                <img class="campusLogo" src="./images/logoer/Campus+CampusKoege-Logo-sort.png">
+            </div>
+        </section>
+
+        <div id="map"></div>
+
+        <section class="container">
+            <h1>Scan</h1>
+        </section>
     </main>
-    <!-- <div id="map"></div> -->
+
+    <script src="./js/index.js" type="module"></script>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>

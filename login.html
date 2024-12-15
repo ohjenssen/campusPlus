@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Campus+ | Login </title>
+</head>
+<body>
+    <header></header>
+    <main class="height100vh">
+        <section class="container-xl d-flex flex-direction-column justify-content-space-around height70Perc">
+
+            <div class="indexHero">
+                <img class="campusLogo" src="./images/logoer/campusMainLogoHQ.png">
+            </div>
+            <div class="groupID-container">
+                <div class="groupID-info">
+                    <a href="./index.html"><img class="filter-white" src="./images/arrow-left.svg"></a>
+                    <h1>GRUPPE-ID</h1>
+                    <p>Indtast dit gruppe-Id som du har fået tilsendt af din lærer</p>
+                </div>
+
+                    <form class="otp-container" id="groupIdForm">
+                        <input type="text" maxlength="1" class="otp-input" inputmode="numeric" />
+                        <input type="text" maxlength="1" class="otp-input" inputmode="numeric" />
+                        <input type="text" maxlength="1" class="otp-input" inputmode="numeric" />
+                        <input type="text" maxlength="1" class="otp-input" inputmode="numeric" />
+                        <input type="text" maxlength="1" class="otp-input" inputmode="numeric" />
+
+                        <input type="hidden" name="otp" id="otp-value" />
+                        <button type="submit" class="hide"></button>
+
+                    </form>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+
+    <script src="./js/index.js" type="module"></script>
+</body>
+</html>

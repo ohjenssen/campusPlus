@@ -1,107 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Julius+Sans+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import './partials/navigation.css';
+@import './partials/flexBox.css';
 * {
     margin: 0;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Inter', Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+:root {
+    --mainBlue: #56B2E5;
+    --mainBlueHover: #004f7a;
+    --mainGreen: #B8FE67;
+    --mainBlack: #474747;
+}
+
+.container {
+    margin: 16px;
+}
+
+.container-xl {
+    margin: 64px;
+}
+
+body {
+    background: 
+    linear-gradient(to bottom, rgb(255, 255, 255), rgba(255, 255, 255, 0)),
+    url('./images/background/Elegant\ Minimalist\ A4\ Stationery\ Paper\ Document\ \(3\)\ 1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #map { 
-    height: 360px; 
-    width: 720px;
-}
-
-.navigation {
-    position: fixed;
-    bottom: 0;
+    height: 200px; 
     width: 100%;
 }
 
-.center-button {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    bottom: 15px;
-    z-index: 1;
-    left: 0px;
-    right: 0px;
+.minHeight100vh {
+    min-height: 200vh;
 }
 
-.center-button a {
-    background-color: #949494;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    font-size: 10px;
-    height: 70px;
-    width: 70px; 
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-   
+.height100vh {
+    height: 100vh;
 }
 
-/* General navbar styling */
-.navbar {
-    background-color: #949494;
-    overflow: hidden;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    bottom: 0;
-    width: 100%;
+.height100Perc {
+    height: 100%;
 }
 
-/* Style the links inside the navigation bar */
-.nav-item {
-    color: #f2f2f2;
-    fill: #fff;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.height70Perc {
+    height: 70%;
 }
 
-/* Add a color to the active/current link */
-.navbar a.active {
-    color: #04AA6D;
+.greenColor {
+    color: var(--mainGreen);
 }
 
-/* https://stackoverflow.com/questions/22252472/how-can-i-change-the-color-of-an-svg-element */
-.filter-green{
-    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
-}
-
-/* Center button wrapper */
-.center-div {
-    position: relative;
-    top: -20px; /* Move the button upwards to stand out */
-    width: 60px; /* Diameter of the button */
-    border-radius: 50%; /* Make it circular */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Center button icon */
-.center-button img.icon {
-    width: 30px;
-    height: 30px;
-}
-
-/* Ensure the navbar items are aligned properly */
-.navbar a, .center-button {
-    flex-grow: 1;
-    text-align: center;
+.blackColor {
+    color: var(--mainBlack);
 }
 
 main {
     
 }
 
-.container {
+.campusLogo {
+    max-width: 100px; 
+}
+
+.logoContainer {
     display: flex;
     justify-content: center;
+}
+
+/* ---------------------------------- Index page -------------------------------------------------- */
+.indexHero {
+    display: flex;
+    justify-content: center;
+}
+
+.indexHero .campusLogo {
+    max-width: 250px;
+}
+
+.roleBtn {
+    display: block;
+    background-color: var(--mainBlue);
+    border: 1px solid var(--mainBlue);
+    border-radius: 25px;
+    padding: 15px;
+    /* width: 100%; */
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 8px 0px 8px 0px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.roleBtn:hover {
+    background-color: var(--mainBlueHover);
+    border: 1px solid var(--mainBlueHover);
+    transition: 0.5s;
+}
+
+/* ------------------------------------------------------ */
+
+.groupID-container {
+    background-color: var(--mainBlue);
+    padding: 16px;
+    border-radius: 15px;
+}
+
+.groupID-info {
+    margin-bottom: 32px;
+}
+
+.otp-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .otp-input {
+    width: 15px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 5px;
+    outline: none;
+    background-color: #e1e1e1;
+    transition: border-color 0.3s;
+  }
+
+  .otp-input:focus {
+    border-color: var(--mainGreen);
+  }
+
+.hide {
+    display: none;
+}
+
+/* ------------------------------ Home ---------------------------------------- */
+.homeHero {
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('./images/background/people.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.homeHero .campusLogo {
+    max-width: 250px;
+}
+
+/* ------------------------------------------------ */
+
+.dropdown {
+    background-color: var(--mainBlue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* font-size: 12px; */
+    padding: 16px;
+    border-radius: 15px;
+    margin: 8px 0px 8px 0px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.dropbtn {
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+    margin-top: 16px;
+    transition: transform 0.5s ease;
+    font-size: 16px;
+}
+
+.dropdown-content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    width: 100%;
+}
+
+.show {
+    max-height: 400px;
+    transition: 0.5s;
+} 
+
+.dropbtn.rotated {
+    transform: rotate(180deg);
+}
+
+.groupInput {
+    width: 100%;
+    border: none;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 16px;
+    font-size: 16px;
+    color: var(--mainBlack);
+    margin: 8px 0px 8px 0px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.redBox {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+
+.cameraInputContainer {
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    color: var(--mainBlack);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cameraInputContainer .camera-icon{
+    width: 100px;
+}
+
+#cameraInput {
+    position: relative;
+    background-color: red;
+    width: 110px;
+    top: -50px;
+    opacity: 0;
+}
+
+.program-happening {
+    display: flex;
+    text-transform: uppercase;
+    margin: 20px 0px 20px 0px;
+}
+
+.program-happening h3 {
+    margin-right: 16px;
+    color: var(--mainGreen);
+}
+
+/* --------------------------------------------- */
+.progress {
+    --progress: 0%;
+    
+    width: 100%;
+    height: 10px;
+    margin: 16px auto;
+    /* border: 1px solid #fff; */
+    /* box-shadow: 0 0 10px #aaa; */
+    background-color: var(--mainBlack);
+    position: relative;
+}
+  
+  .progress .bar {
+    width: var(--progress);
+    height: 100%;
+    background: linear-gradient(gold, #c85, gold);
+    background-repeat: repeat;
+    box-shadow: 0 0 10px 0px orange;
+    animation: 
+      shine 10s ease-in infinite,
+      end 1s ease-out 1;
+    transition: width 3s ease;
+}
+
+#wheelOfFortune {
+    position: absolute;
+    right: -8px;
+    top: -12px
+}
+
+
+@property --progress {
+    syntax: "<length>";
+    initial-value: 0%;
+    inherits: true;
+  }
+  
+  @keyframes shine {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 50px; }
+  }
+  
+  @keyframes end {
+    0%, 100% { box-shadow: 0 0 10px 0px orange; }
+    50% { box-shadow: 0 0 15px 5px orange; }
+}
+
+/* ---------------------------------------------------------------------- */
+  
+.toggle-button-cover {
+    /* display: table-cell; */
+    position: relative;
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+}
+  
+.button-cover {
+    border-radius: 4px;
+}
+  
+.button-cover,
+.knobs,
+.layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+  
+.button {
+    position: relative;
+    top: 50%;
+    width: 74px;
+    height: 36px;
+    margin: -20px auto 0 auto;
+    overflow: hidden;
+}
+  
+.button.r,
+.button.r .layer {
+    border-radius: 100px;
+    width: 100%;
+}
+
+.checkbox {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+  
+.knobs {
+    z-index: 2;
+}
+  
+.layer {
+    width: 100%;
+    background-color: #ebf7fc;
+    transition: 0.3s ease all;
+    z-index: 1;
+}
+
+#button-1 .knobs:before {
+    content: "Klassegrupper";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 50%;
+    height: 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1;
+    padding: 9px 4px;
+    background-color: #03a9f4;
+    border-radius: 15px;
+    transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+}
+
+#button-1 .checkbox:checked + .knobs:before {
+    content: "Alle grupper";
+    left: 46%;
+    background-color: #f44336;
+}
+
+#button-1 .checkbox:checked ~ .layer {
+    background-color: #fcebeb;
+}
+
+#button-1 .knobs,
+#button-1 .knobs:before,
+#button-1 .layer {
+    transition: 0.3s ease all;
+}
+
+/* ------------------------------------------------------------ */
+.leaderboardContainer {
+    width: 100%;
+}
+
+.leaderboardGroup {
+    background-color: #C3DEFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 16px;
+    border-radius: 10px;
+    margin: 8px auto;
+}
+
+.groupThumbnailAndNameContainer {
+    display: flex;
+    align-items: center;
+}
+
+.groupThumbnail {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 5px; 
+}
+
+.groupImg {
+    width: 50px;
+    height: auto;
+    text-align: center;
 }
