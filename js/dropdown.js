@@ -15,9 +15,5 @@ export function dropdownYourGroup() {
         programDropDown.classList.toggle("show");
         programBtn.classList.toggle("rotated");
     })
-
-    const progress = document.querySelector(".progress");
-    const value = Math.floor(Math.random() * 100);
-    progress.style.setProperty("--progress", `${value}%`);
 }
 

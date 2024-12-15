@@ -10,7 +10,7 @@
 <body>
     <header class="navigation">
         <div class="center-button">
-            <a href="scan.html"><img cl  ass="icon" src="./images/qr-code-scan.svg">Scan</a>
+            <a href="scan.html"><img class="icon filter-white" src="./images/qr-code-scan.svg">Scan</a>
         </div>
         <nav class="navbar">
             <a class="nav-item" href="hjaem.html"><img class="icon filter-white" src="./images/house-door-fill.svg">Hjem</a>
@@ -22,17 +22,38 @@
         </nav>
     </header>
     <main>
-        <section class="container">
+        <section class="container bg-blue">
             <div class="logoContainer">
-                <img class="campusLogo" src="./images/logoer/Campus+CampusKoege-Logo-sort.png">
+                <img class="campusLogo" src="./images/logoer/campusMainLogoHQ.png">
+            </div>
+            <div class="scrollNav">
+                <button class="scrollMenuItem active">Alle</button>
+                <button class="scrollMenuItem">Rød zone</button>
+                <button class="scrollMenuItem">Blå zone</button>
+                <button class="scrollMenuItem">Grøn zone</button>
+                <button class="scrollMenuItem">Gul zone</button>
+                <button class="scrollMenuItem">Pink zone</button>
             </div>
         </section>
 
         <div id="map"></div>
+        
+        <section class="bg-transparent-blue">
+            <div class="filterIconsContainer">
+                <button class="filterBtn"><img class="filter-white" src="./images/suit-heart-fill.svg">Favoritter</button>
+                <button class="filterBtn"><img class="filter-white" src="./images/sort-alpha-down.svg">Alfabetisk</button>
+            </div>
 
-        <section class="container">
-            <h1>Scan</h1>
+            <div class="standContainer">
+                <div class="standNameAndZoneContainer">
+                    <img class="filter-green" src="./images/star-fill.svg">
+                    <h4>Elgiganten</h4>
+                </div>
+                <button class="likeBtn"><img class="filter-white" src="./images/suit-heart.svg"></button>
+            </div>
+
         </section>
+
     </main>
 
     <script src="./js/index.js" type="module"></script>

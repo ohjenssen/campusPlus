@@ -14,7 +14,8 @@
 }
 
 .container {
-    margin: 16px;
+    /* margin: 16px; */
+    padding: 16px;
 }
 
 .container-xl {
@@ -59,6 +60,14 @@ body {
     color: var(--mainBlack);
 }
 
+.bg-blue {
+    background-color: var(--mainBlue);
+}
+
+.bg-transparent-blue {
+    background-color: rgba(86, 178, 229, 0.75); /* 0.5 is 50% transparency */
+}
+
 main {
     
 }
@@ -70,6 +79,7 @@ main {
 .logoContainer {
     display: flex;
     justify-content: center;
+    /* background-color: var(--mainBlue); */
 }
 
 /* ---------------------------------- Index page -------------------------------------------------- */
@@ -88,7 +98,6 @@ main {
     border: 1px solid var(--mainBlue);
     border-radius: 25px;
     padding: 15px;
-    /* width: 100%; */
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     font-weight: 700;
     text-transform: uppercase;
@@ -423,7 +432,73 @@ main {
 }
 
 .groupImg {
-    width: 50px;
+    width: 75px;
     height: auto;
     text-align: center;
+}
+
+/* -------------------------------------------------------- */
+.scrollNav {
+    overflow: auto;
+    white-space: nowrap;
+    scrollbar-width: none; 
+}
+
+.scrollNav::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollMenuItem {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.active {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 20px;
+    color: var(--mainGreen);
+}
+
+.filterIconsContainer {
+    display: flex;
+    justify-content: end;
+    padding: 16px;
+    border-bottom: 1px solid white;
+}
+
+.filterBtn {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.standContainer {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+}
+
+.standNameAndZoneContainer {
+    display: flex;
+}
+
+.standNameAndZoneContainer img{
+    margin-right: 5px;
+}
+
+.likeBtn {
+    background-color: transparent;
+    border: none;
 }
