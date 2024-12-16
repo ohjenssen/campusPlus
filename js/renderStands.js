@@ -40,11 +40,9 @@ export function renderStands(selectedZone = "all") {
         likeIcon.classList.add("filter-white");
         likeBtn.addEventListener('click', () => {
             if (!likeIcon.src.endsWith('suit-heart-fill.svg')) {
-                console.log('yes');
                 likeIcon.src = './images/suit-heart-fill.svg';
                 likeIcon.classList.add('filter-red');
             } else {
-                console.log('no');
                 likeIcon.src = './images/suit-heart.svg';
                 likeIcon.classList.remove('filter-red');
             }
