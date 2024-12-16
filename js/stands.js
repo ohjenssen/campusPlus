@@ -1,5 +1,10 @@
 export const stands = [
     {
+        "name": "PlayStation Booth",
+        "zone": "blue",
+        "liked": false
+    },
+    {
         "name": "Elgiganten",
         "zone": "red",
         "liked": false
@@ -7,6 +12,11 @@ export const stands = [
     {
         "name": "MediaMarkt",
         "zone": "red",
+        "liked": false
+    },
+    {
+        "name": "Green Eats",
+        "zone": "green",
         "liked": false
     },
     {
@@ -20,19 +30,14 @@ export const stands = [
         "liked": true
     },
     {
-        "name": "PlayStation Booth",
-        "zone": "blue",
+        "name": "Rose Art",
+        "zone": "pink",
         "liked": false
     },
     {
         "name": "Nintendo Zone",
         "zone": "blue",
         "liked": true
-    },
-    {
-        "name": "Green Eats",
-        "zone": "green",
-        "liked": false
     },
     {
         "name": "Organic World",
@@ -53,11 +58,6 @@ export const stands = [
         "name": "Barbie World",
         "zone": "pink",
         "liked": true
-    },
-    {
-        "name": "Rose Art",
-        "zone": "pink",
-        "liked": false
     },
     {
         "name": "Sunny Tech",
