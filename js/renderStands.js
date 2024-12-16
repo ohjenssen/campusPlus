@@ -8,29 +8,47 @@ const zones = {
     pink: [[55.458872, 12.181195], [55.457973, 12.182127]],
 };
 
-export function renderStands(){
-    const container = document.getElementById('standsContainer');
+// Function to render stands based on the selected zone
+export function renderStands(selectedZone = "all") {
+    const container = document.getElementById("standsContainer");
     container.innerHTML = ``;
 
-    for(let i = 0; i < stands.length; i++){
-        const standContainer = document.createElement('div');
-        standContainer.classList.add('standContainer');
-        
-        const standNameAndZoneContainer = document.createElement('div');
-        standNameAndZoneContainer.classList.add('standNameAndZoneContainer');
+    // Filter stands by the selected zone
+    const filteredStands = selectedZone === "all" 
+        ? stands 
+        : stands.filter(stand => stand.zone === selectedZone);
 
-        const starIcon = document.createElement('img');
-        starIcon.src = './images/star-fill.svg';
+    for (let i = 0; i < filteredStands.length; i++) {
+        const stand = filteredStands[i];
+        const standContainer = document.createElement("div");
+        standContainer.classList.add("standContainer");
 
-        const standTitle = document.createElement('h4');
-        standTitle.textContent = stands[i].name;
+        const standNameAndZoneContainer = document.createElement("div");
+        standNameAndZoneContainer.classList.add("standNameAndZoneContainer");
 
-        const likeBtn = document.createElement('button');
-        likeBtn.classList.add('likeBtn');
+        const starIcon = document.createElement("img");
+        starIcon.src = "./images/star-fill.svg";
 
-        const likeIcon = document.createElement('img');
-        likeIcon.src = './images/suit-heart.svg';
-        likeIcon.classList.add('filter-white');
+        const standTitle = document.createElement("h4");
+        standTitle.textContent = stand.name;
+
+        const likeBtn = document.createElement("button");
+        likeBtn.classList.add("likeBtn");
+
+        const likeIcon = document.createElement("img");
+        likeIcon.src = "./images/suit-heart.svg";
+        likeIcon.classList.add("filter-white");
+        likeBtn.addEventListener('click', () => {
+            if (!likeIcon.src.endsWith('suit-heart-fill.svg')) {
+                console.log('yes');
+                likeIcon.src = './images/suit-heart-fill.svg';
+                likeIcon.classList.add('filter-red');
+            } else {
+                console.log('no');
+                likeIcon.src = './images/suit-heart.svg';
+                likeIcon.classList.remove('filter-red');
+            }
+        });
 
         standContainer.appendChild(standNameAndZoneContainer);
         standNameAndZoneContainer.appendChild(starIcon);
@@ -38,28 +56,32 @@ export function renderStands(){
         standContainer.appendChild(likeBtn);
         likeBtn.appendChild(likeIcon);
 
-        switch(stands[i].zone){
-            case 'red':
-                starIcon.classList.add('filter-red');
+        // Add zone-specific styles
+        switch (stand.zone) {
+            case "red":
+                starIcon.classList.add("filter-red");
                 break;
-
-            case 'blue':
-                starIcon.classList.add('filter-blue');
+            case "blue":
+                starIcon.classList.add("filter-blue");
                 break;
-
-            case 'yellow':
-                starIcon.classList.add('filter-yellow');
+            case "yellow":
+                starIcon.classList.add("filter-yellow");
                 break;
-
-            case 'green':
-                starIcon.classList.add('filter-green');
-            break;
-
-            case 'pink':
-                starIcon.classList.add('filter-pink');
-            break;
+            case "green":
+                starIcon.classList.add("filter-green");
+                break;
+            case "pink":
+                starIcon.classList.add("filter-pink");
+                break;
         }
 
         container.appendChild(standContainer);
     }
 }
+
+// Listen for zone selection changes and re-render the stands
+document.querySelectorAll(".scrollMenuItemInput").forEach(input => {
+    input.addEventListener("change", (event) => {
+        renderStands(event.target.value);
+    });
+});

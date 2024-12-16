@@ -27,12 +27,23 @@
                 <img class="campusLogo" src="./images/logoer/campusMainLogoHQ.png">
             </div>
             <div class="scrollNav">
-                <button class="scrollMenuItem active" data-zone="all">Alle</button>
-                <button class="scrollMenuItem" data-zone="red">Rød zone</button>
-                <button class="scrollMenuItem" data-zone="blue">Blå zone</button>
-                <button class="scrollMenuItem" data-zone="green">Grøn zone</button>
-                <button class="scrollMenuItem" data-zone="yellow">Gul zone</button>
-                <button class="scrollMenuItem" data-zone="pink">Pink zone</button>
+                <input type="radio" id="all" name="zone" class="scrollMenuItemInput" value="all" checked>
+                <label for="all" class="scrollMenuItem">Alle</label>
+        
+                <input type="radio" id="red" name="zone" class="scrollMenuItemInput" value="red">
+                <label for="red" class="scrollMenuItem">Rød zone</label>
+        
+                <input type="radio" id="blue" name="zone" class="scrollMenuItemInput" value="blue">
+                <label for="blue" class="scrollMenuItem">Blå zone</label>
+        
+                <input type="radio" id="green" name="zone" class="scrollMenuItemInput" value="green">
+                <label for="green" class="scrollMenuItem">Grøn zone</label>
+        
+                <input type="radio" id="yellow" name="zone" class="scrollMenuItemInput" value="yellow">
+                <label for="yellow" class="scrollMenuItem">Gul zone</label>
+        
+                <input type="radio" id="pink" name="zone" class="scrollMenuItemInput" value="pink">
+                <label for="pink" class="scrollMenuItem">Pink zone</label>
             </div>
         </section>
 
@@ -44,7 +55,7 @@
                 <button class="filterBtn"><img class="filter-white" src="./images/sort-alpha-down.svg">Alfabetisk</button>
             </div>
 
-            <div id="standsContainer">
+            <div id="standsContainer" class="minHeight100vh">
                 <!-- All stands will be rendered here -->
 
                 <!-- <div class="standContainer" id="standContainer">
@@ -65,8 +76,7 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
-        // Initialize the map
-        var map = L.map('map').setView([55.4580, 12.1821], 16); // Centered around Køge, Denmark
+        var map = L.map('map').setView([55.4580, 12.1821], 16); // Default overview center
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -74,42 +84,38 @@
         }).addTo(map);
 
         // Define the square zones
-        var zones = [
-            {
-                name: 'Zone 1',
-                bounds: [[55.456861, 12.181376], [55.456663, 12.180244]], // Top-left and bottom-right corners
-                color: 'red'
-            },
-            {
-                name: 'Zone 2',
-                bounds: [[55.456855, 12.181390], [55.457407, 12.182953]],
-                color: 'blue'
-            },
-            {
-                name: 'Zone 3',
-                bounds: [[55.457771, 12.178861], [55.457471, 12.181061]],
-                color: 'green'
-            },
-            {
-                name: 'Zone 4',
-                bounds: [[55.458110, 12.182266], [55.458510, 12.183617]],
-                color: 'yellow'
-            },
-            {
-                name: 'Zone 5',
-                bounds: [[55.458872, 12.181195], [55.457973, 12.182127]],
-                color: 'pink'
-            }
-        ];
+        var zones = {
+            red: [[55.456861, 12.181376], [55.456663, 12.180244]],
+            blue: [[55.456855, 12.181390], [55.457407, 12.182953]],
+            green: [[55.457771, 12.178861], [55.457471, 12.181061]],
+            yellow: [[55.458110, 12.182266], [55.458510, 12.183617]],
+            pink: [[55.458872, 12.181195], [55.457973, 12.182127]]
+        };
 
         // Add the square zones to the map
-        zones.forEach(function(zone) {
-            L.rectangle(zone.bounds, {
-                color: zone.color,
-                fillColor: zone.color,
+        Object.keys(zones).forEach(function(zone) {
+            L.rectangle(zones[zone], {
+                color: zone,
+                fillColor: zone,
                 fillOpacity: 0.5,
                 weight: 2
-            }).addTo(map).bindPopup(zone.name);
+            }).addTo(map).bindPopup(`${zone.charAt(0).toUpperCase() + zone.slice(1)} Zone`);
+        });
+
+        // Listen for zone selection changes to zoom/fit map
+        document.querySelectorAll(".scrollMenuItemInput").forEach(input => {
+            input.addEventListener("change", (event) => {
+                const selectedZone = event.target.value;
+
+                if (selectedZone === "all") {
+                    // Zoom out to show all zones
+                    map.setView([55.4580, 12.1821], 16);
+                } else {
+                    // Fit the map to the selected zone
+                    const bounds = zones[selectedZone];
+                    map.fitBounds(bounds);
+                }
+            });
         });
     </script>
 </body>

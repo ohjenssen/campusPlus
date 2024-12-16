@@ -445,6 +445,10 @@ main {
     display: none;
 }
 
+.scrollMenuItemInput {
+    display: none;
+}
+
 .scrollMenuItem {
     display: inline-block;
     color: white;
@@ -455,9 +459,11 @@ main {
     border: none;
     font-weight: 700;
     text-transform: uppercase;
+    cursor: pointer;
+    padding: 5px 10px;
 }
 
-.active {
+.scrollMenuItemInput:checked + .scrollMenuItem {
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 20px;
