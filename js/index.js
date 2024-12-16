@@ -12,11 +12,12 @@ function setRoute(path){
         case '/hjaem.html':
             dropdownYourGroup();
             setProgress();
+            console.log(path)
             break;
 
         case '/login.html':
             handleGroupId();
-            console.log('yes')
+            console.log(path)
             break;
 
         case '/stands.html':
