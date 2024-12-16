@@ -16,6 +16,7 @@ function setRoute(path){
 
         case '/login.html':
             handleGroupId();
+            console.log('yes')
             break;
 
         case '/stands.html':
